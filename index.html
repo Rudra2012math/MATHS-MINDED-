@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MathsAI - E-Learning Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7ff;
+    color: #1d2340;
+}
+
+/* NAVBAR */
+
+nav {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #5146e5;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #5146e5;
+}
+
+/* HERO */
+
+.hero {
+    padding: 80px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    background: linear-gradient(135deg, #eeeeff, #ffffff);
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #606477;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 10px;
+    border: none;
+    background: #5146e5;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #3932bd;
+}
+
+.hero-card {
+    background: white;
+    width: 350px;
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(50,50,120,0.15);
+    text-align: center;
+}
+
+.math-icon {
+    font-size: 65px;
+    color: #5146e5;
+    margin-bottom: 15px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+/* TOPICS */
+
+.topic-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.topic {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e5e5ee;
+    transition: 0.3s;
+}
+
+.topic:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(50,50,120,0.1);
+}
+
+.topic-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.topic h3 {
+    margin-bottom: 10px;
+}
+
+.topic p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* CONCEPTS */
+
+.concepts {
+    background: #ffffff;
+}
+
+.concept-box {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #f8f8ff;
+    padding: 25px;
+    border-left: 5px solid #5146e5;
+    border-radius: 10px;
+}
+
+.concept-box h3 {
+    color: #5146e5;
+    margin-bottom: 10px;
+}
+
+.formula {
+    background: #eeeeff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #3731a8;
+}
+
+/* PRACTICE */
+
+.practice {
+    background: #f5f7ff;
+}
+
+.question {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 28px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.question h3 {
+    color: #5146e5;
+    margin-bottom: 12px;
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 13px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #eeeeff;
+}
+
+.correct {
+    background: #d9f9e8 !important;
+    border-color: #19a866 !important;
+    color: #08783f;
+}
+
+.wrong {
+    background: #ffe0e0 !important;
+    border-color: #e33d3d !important;
+    color: #a50000;
+}
+
+.solution {
+    display: none;
+    background: #f0f2ff;
+    padding: 18px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.solution.show {
+    display: block;
+}
+
+/* AI */
+
+.ai-section {
+    background: linear-gradient(135deg, #171936, #35358a);
+    color: white;
+}
+
+.ai-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.ai-box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    color: #222;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ai-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #5146e5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.ai-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.camera-btn {
+    background: #eeeeff;
+    color: #5146e5;
+    padding: 13px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.solve-btn {
+    background: #5146e5;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.preview {
+    margin-top: 15px;
+}
+
+.preview img {
+    max-width: 250px;
+    max-height: 200px;
+    border-radius: 10px;
+}
+
+.ai-answer {
+    background: #f3f4ff;
+    color: #222;
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    white-space: pre-line;
+    display: none;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111222;
+    color: white;
+    padding: 40px 7%;
+    text-align: center;
+}
+
+footer p {
+    color: #aaa;
+    margin-top: 8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+    .topic-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media(max-width: 600px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .topic-container {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        ∑ MathsAI
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#ai">AI Tutor</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>
+            Learn Maths.
+            <span>Master Maths.</span>
+        </h1>
+
+        <p>
+            Learn concepts, practise questions and use
+            our AI Maths Tutor whenever you get stuck.
+        </p>
+
+        <a href="#practice" class="btn">
+            Start Practising
+        </a>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="math-icon">
+            ∫
+        </div>
+
+        <h2>AI Maths Tutor</h2>
+
+        <p>
+            Take a photo of your Maths question
+            and get a step-by-step explanation.
+        </p>
+
+        <br>
+
+        <button
+            class="btn"
+            onclick="document.getElementById('camera').click()"
+        >
+            📷 Scan Question
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- TOPICS -->
+
+<section id="topics">
+
+    <div class="section-title">
+
+        <h2>Maths Topics</h2>
+
+        <p>
+            Learn every topic step-by-step.
+        </p>
+
+    </div>
+
+
+    <div class="topic-container">
+
+        <div class="topic">
+
+            <div class="topic-icon">🔢</div>
+
+            <h3>Real Numbers</h3>
+
+            <p>
+                Learn HCF, LCM, Euclid's division
+                algorithm and irrational numbers.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <div class="topic-icon">📈</div>
+
+            <h3>Polynomials</h3>
+
+            <p>
+                Understand zeros of polynomials
+                and relationships between coefficients.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <div class="topic-icon">➗</div>
+
+            <h3>Linear Equations</h3>
+
+            <p>
+                Learn substitution, elimination
+                and graphical methods.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <div class="topic-icon">📐</div>
+
+            <h3>Quadratic Equations</h3>
+
+            <p>
+                Learn factorisation, formulas,
+                roots and discriminants.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <div class="topic-icon">🔢</div>
+
+            <h3>Arithmetic Progressions</h3>
+
+            <p>
+                Learn common difference,
+                nth term and sum of terms.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONCEPTS -->
+
+<section class="concepts" id="concepts">
+
+    <div class="section-title">
+
+        <h2>Detailed Concepts</h2>
+
+        <p>
+            Important formulas and concepts for revision.
+        </p>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>1. Real Numbers</h3>
+
+        <p>
+            Real numbers include rational and irrational numbers.
+            The Euclidean algorithm can be used to find the HCF
+            of two positive integers.
+        </p>
+
+        <div class="formula">
+            Euclid's Division Lemma:
+            a = bq + r
+        </div>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>2. Polynomials</h3>
+
+        <p>
+            A polynomial is an algebraic expression containing
+            variables with non-negative integer powers.
+        </p>
+
+        <div class="formula">
+            For ax² + bx + c:
+            Sum of zeros = -b/a
+            <br>
+            Product of zeros = c/a
+        </div>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>3. Pair of Linear Equations</h3>
+
+        <p>
+            Two linear equations can be solved using
+            substitution, elimination or graphical methods.
+        </p>
+
+        <div class="formula">
+            ax + by + c = 0
+            <br>
+            px + qy + r = 0
+        </div>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>4. Quadratic Equations</h3>
+
+        <p>
+            A quadratic equation has the standard form
+            ax² + bx + c = 0.
+        </p>
+
+        <div class="formula">
+            x = (-b ± √(b² - 4ac)) / 2a
+            <br><br>
+            Discriminant = b² - 4ac
+        </div>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>5. Arithmetic Progressions</h3>
+
+        <p>
+            An arithmetic progression is a sequence in which
+            the difference between consecutive terms remains constant.
+        </p>
+
+        <div class="formula">
+            nth term = a + (n - 1)d
+            <br><br>
+            Sum = n/2 [2a + (n - 1)d]
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRACTICE -->
+
+<section class="practice" id="practice">
+
+    <div class="section-title">
+
+        <h2>10 Practice Questions</h2>
+
+        <p>
+            Choose the correct answer and view the complete solution.
+        </p>
+
+    </div>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question">
+
+        <h3>Question 1 — Real Numbers</h3>
+
+        <div class="question-text">
+            What is the HCF of 36 and 48?
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution1')">
+            A. 6
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution1')">
+            B. 12
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution1')">
+            C. 18
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution1')">
+            D. 24
+        </button>
+
+        <div class="solution" id="solution1">
+
+            <b>Correct Answer: 12</b>
+
+            <p>
+                Prime factorisation:
+                <br><br>
+                36 = 2² × 3²
+                <br>
+                48 = 2⁴ × 3
+                <br><br>
+                Common factors:
+                2² × 3 = 12
+                <br><br>
+                Therefore HCF = <b>12</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question">
+
+        <h3>Question 2 — Real Numbers</h3>
+
+        <div class="question-text">
+            Which of the following is irrational?
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution2')">
+            A. √2
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution2')">
+            B. 4/5
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution2')">
+            C. 0.25
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution2')">
+            D. 7
+        </button>
+
+        <div class="solution" id="solution2">
+
+            <b>Correct Answer: √2</b>
+
+            <p>
+                √2 cannot be represented as a ratio of two integers.
+                Therefore it is an irrational number.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question">
+
+        <h3>Question 3 — Polynomials</h3>
+
+        <div class="question-text">
+            If α and β are zeros of x² - 5x + 6,
+            what is α + β?
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution3')">
+            A. 6
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution3')">
+            B. -6
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution3')">
+            C. 5
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution3')">
+            D. -5
+        </button>
+
+        <div class="solution" id="solution3">
+
+            <b>Correct Answer: 5</b>
+
+            <p>
+                For ax² + bx + c,
+                <br><br>
+                Sum of zeros = -b/a
+                <br><br>
+                Here a = 1 and b = -5.
+                <br>
+                Therefore:
+                <br>
+                α + β = -(-5)/1 = <b>5</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question">
+
+        <h3>Question 4 — Polynomials</h3>
+
+        <div class="question-text">
+            The zeros of x² - 9 are:
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution4')">
+            A. 3 and 3
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution4')">
+            B. -3 and -3
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution4')">
+            C. 3 and -3
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution4')">
+            D. 9 and -9
+        </button>
+
+        <div class="solution" id="solution4">
+
+            <b>Correct Answer: 3 and -3</b>
+
+            <p>
+                x² - 9 = 0
+                <br><br>
+                (x - 3)(x + 3) = 0
+                <br><br>
+                Therefore:
+                <br>
+                x = 3 or x = -3.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 5 -->
+
+    <div class="question">
+
+        <h3>Question 5 — Linear Equations</h3>
+
+        <div class="question-text">
+            Solve:
+            x + y = 10
+            and
+            x - y = 2.
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution5')">
+            A. x = 6, y = 4
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution5')">
+            B. x = 4, y = 6
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution5')">
+            C. x = 5, y = 5
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution5')">
+            D. x = 8, y = 2
+        </button>
+
+        <div class="solution" id="solution5">
+
+            <b>Correct Answer: x = 6, y = 4</b>
+
+            <p>
+                Add both equations:
+                <br><br>
+                x + y + x - y = 10 + 2
+                <br>
+                2x = 12
+                <br>
+                x = 6
+                <br><br>
+                Substitute x = 6:
+                <br>
+                6 + y = 10
+                <br>
+                y = 4
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 6 -->
+
+    <div class="question">
+
+        <h3>Question 6 — Linear Equations</h3>
+
+        <div class="question-text">
+            If 2x + 3y = 12 and x = 3,
+            find y.
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution6')">
+            A. 2
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution6')">
+            B. 1
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution6')">
+            C. 3
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution6')">
+            D. 4
+        </button>
+
+        <div class="solution" id="solution6">
+
+            <b>Correct Answer: y = 2</b>
+
+            <p>
+                Substitute x = 3:
+                <br><br>
+                2(3) + 3y = 12
+                <br>
+                6 + 3y = 12
+                <br>
+                3y = 6
+                <br>
+                y = <b>2</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question">
+
+        <h3>Question 7 — Quadratic Equations</h3>
+
+        <div class="question-text">
+            Find the roots of:
+            x² - 5x + 6 = 0
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution7')">
+            A. 1 and 6
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution7')">
+            B. 2 and 3
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution7')">
+            C. -2 and -3
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution7')">
+            D. 5 and 6
+        </button>
+
+        <div class="solution" id="solution7">
+
+            <b>Correct Answer: 2 and 3</b>
+
+            <p>
+                Factorise:
+                <br><br>
+                x² - 5x + 6
+                <br>
+                = (x - 2)(x - 3)
+                <br><br>
+                Therefore:
+                <br>
+                x = 2 or x = 3.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question">
+
+        <h3>Question 8 — Quadratic Equations</h3>
+
+        <div class="question-text">
+            Find the discriminant of:
+            x² + 4x + 4 = 0
+        </div>
+
+        <button class="option"
+            onclick="checkAnswer(this, true, 'solution8')">
+            A. 0
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution8')">
+            B. 4
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution8')">
+            C. 8
+        </button>
+
+        <button class="option"
+            onclick="checkAnswer(this, false, 'solution8')">
+            D. 16
+        </button>
+
+        <div class="solution" id="solution8">
+
+            <b>Correct Answer: 0</b>
+
+            <p>
+                Discriminant:
+                <br><br>
+                D = b² - 4ac
+                <br><br>
+    
